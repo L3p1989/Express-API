@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/L3p1989/Express-API/issues"
   },
-  "homepage": "https://github.com/L3p1989/Express-API#readme"
+  "homepage": "https://github.com/L3p1989/Express-API#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "jquery": "^3.3.1"
+  }
 }
