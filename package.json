@@ -1,0 +1,19 @@
+{
+  "name": "express-api",
+  "version": "1.0.0",
+  "description": "Lab: Building APIs with ExpressJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/L3p1989/Express-API.git"
+  },
+  "author": "Patrick Hogan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/L3p1989/Express-API/issues"
+  },
+  "homepage": "https://github.com/L3p1989/Express-API#readme"
+}
