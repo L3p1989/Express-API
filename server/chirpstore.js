@@ -1,41 +1,41 @@
-const fs = require('fs');
+const fs = require("fs");
 let chirps = { nextid: 0 };
 
-if(fs.existsSync('chirps.json')) {
-    chirps = JSON.parse(fs.readFileSync('chirps.json'));
+if (fs.existsSync("chirps.json")) {
+  chirps = JSON.parse(fs.readFileSync("chirps.json"));
 }
 
 let getChirps = () => {
-    return Object.assign({}, chirps); //create a copy and return it
-}
+  return Object.assign({}, chirps); //create a copy and return it
+};
 
 let getChirp = id => {
-    return Object.assign({}, chirps[id]); //create a copy and return it
-}
-
-let createChirp = (chirp) => {
-    chirps[chirps.nextid++] = chirp;
-    writeChirps();
+  return Object.assign({}, chirps[id]); //create a copy and return it
 };
+
+let createChirp = chirp => {
+  chirps[chirps.nextid++] = chirp;
+  writeChirps();
+}; //add chirp with new id, write to file
 
 let updateChirp = (id, chirp) => {
-    chirps[id] = chirp;
-    writeChirps();
-}
+  chirps[id] = chirp;
+  writeChirps();
+}; //edit chirp and update to file
 
 let deleteChirp = id => {
-    delete chirps[id];
-    writeChirps();
-}
+  delete chirps[id];
+  writeChirps();
+}; //delete chirp and update file
 
 let writeChirps = () => {
-    fs.writeFileSync('chirps.json', JSON.stringify(chirps));
-};
+  fs.writeFileSync("chirps.json", JSON.stringify(chirps));
+}; //write chirps to chirps.json in JSON
 
 module.exports = {
-    CreateChirp: createChirp,
-    DeleteChirp: deleteChirp,
-    GetChirps: getChirps,
-    GetChirp: getChirp,
-    UpdateChirp: updateChirp
-}
+  CreateChirp: createChirp,
+  DeleteChirp: deleteChirp,
+  GetChirps: getChirps,
+  GetChirp: getChirp,
+  UpdateChirp: updateChirp
+}; //export all functions
