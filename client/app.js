@@ -16,6 +16,9 @@ $(() => {
           );
         }
       });
+    },
+    error: err => {
+      console.log(err);
     }
   });
-}); //if user and text is not undefined show each chirp in card
+}); //if user and text is not undefined show each chirp in card; if any errors arise log them in console
