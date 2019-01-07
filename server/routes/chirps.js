@@ -17,13 +17,15 @@ router.post("/", (req, res) => {
   res.sendStatus(200);
 }); //create chirp
 
-router.put("/", (req, res) => {
-  chirpsStore.UpdateChirp(req.body);
+router.put("/:id", (req, res) => {
+  let id = req.params.id;
+  chirpsStore.UpdateChirp(id, req.body);
   res.sendStatus(200);
 }); //update chirp
 
-router.delete("/", (req, res) => {
-  chirpsStore.DeleteChirp(req.body);
+router.delete("/:id", (req, res) => {
+  let id = req.params.id;
+  chirpsStore.DeleteChirp(id, req.body);
   res.sendStatus(200);
 }); //delete chirp
 
