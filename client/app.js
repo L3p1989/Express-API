@@ -1,6 +1,6 @@
 $(() => {
   const $chirps = $("#chirps");
-  const $name = $("#name");
+  const $user = $("#user");
   const $chirpText = $("#chirp-text");
 
   $.ajax({
@@ -24,5 +24,15 @@ $(() => {
     }
   }); //if user and text is not undefined show each chirp in card; if any errors arise log them in console
 
-  $("#chirp-submit").on("click", () => {});
+  $("#chirp-submit").on("click", () => {
+    let chirp = {
+      user: $user.val(),
+      text: $chirpText.val()
+    }; //create chirp object with the input values from name and chirpText
+    $.ajax({
+      type: "POST",
+      url: "api/chirps",
+      data: chirp
+    });
+  });
 });
