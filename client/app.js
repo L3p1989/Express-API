@@ -18,4 +18,4 @@ $(() => {
       });
     }
   });
-});
+}); //if user and text is not undefined show each chirp in card
