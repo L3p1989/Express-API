@@ -1,5 +1,7 @@
 $(() => {
-  let $chirps = $("#chirps");
+  const $chirps = $("#chirps");
+  const $name = $("#name");
+  const $chirpText = $("#chirp-text");
 
   $.ajax({
     type: "GET",
@@ -21,4 +23,6 @@ $(() => {
       console.log(err);
     }
   }); //if user and text is not undefined show each chirp in card; if any errors arise log them in console
+
+  $("#chirp-submit").on("click", () => {});
 });
