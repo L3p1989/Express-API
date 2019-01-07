@@ -5,6 +5,18 @@ $(() => {
 
   displayChirps = chirps => {
     $chirps.empty();
+    removeChirp = id => {
+      $.ajax({
+        type: "DELETE",
+        url: "api/chirps/" + id,
+        success: chirps => {
+          displayChirps(chirps);
+        },
+        error: err => {
+          console.log(err);
+        }
+      });
+    }; //Delete chirp by id and update chirps display
     $.each(chirps, (i, chirp) => {
       if (chirp.user && chirp.text !== undefined) {
         $chirps.append(
@@ -18,7 +30,7 @@ $(() => {
         );
       }
     });
-  }; //update chirps render
+  }; //update chirps display
 
   $.ajax({
     type: "GET",
