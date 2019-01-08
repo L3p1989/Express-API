@@ -44,7 +44,8 @@ $(() => {
             }" /></p><p>Chirp: <input class="form-input" type="text" name="text" id="edit-text" value="${
               chirps[id].text
             }" /></p><button class="btn btn-primary" id="edit-submit" onclick="submitEdit(${i})">Save</button><button class="btn btn-danger" onclick="removePopup()">X</button></div>`
-          );
+          ); //shows a popup with the info in clicked card
+
           submitEdit = id => {
             let chirp = {
               user: $("#edit-user").val(),
