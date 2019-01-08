@@ -35,6 +35,7 @@ $(() => {
             `<button class="btn btn-danger" onclick="removeChirp(${i})">X</button>` +
             "</div></div>"
         );
+
         editPopup = id => {
           $("#popup").css("display", "block");
           $("#popup").append(
@@ -42,8 +43,26 @@ $(() => {
               chirps[id].user
             }" /></p><p>Chirp: <input class="form-input" type="text" name="text" id="edit-text" value="${
               chirps[id].text
-            }" /></p><button class="btn btn-primary" id="edit-submit" onclick="submitEdit()">Save</button><button class="btn btn-danger" onclick="removePopup()">X</button></div>`
+            }" /></p><button class="btn btn-primary" id="edit-submit" onclick="submitEdit(${i})">Save</button><button class="btn btn-danger" onclick="removePopup()">X</button></div>`
           );
+          submitEdit = id => {
+            let chirp = {
+              user: $("#edit-user").val(),
+              text: $("#edit-text").val()
+            };
+            $.ajax({
+              type: "PUT",
+              url: "api/chirps/" + id,
+              data: chirp,
+              success: chirps => {
+                displayChirps(chirps);
+              },
+              error: err => {
+                console.log(err);
+              }
+            });
+            removePopup();
+          }; //update chirp with chirp values
         };
       }
     });
