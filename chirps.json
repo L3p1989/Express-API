@@ -1,8 +1,1 @@
-{
-  "0": {
-    "user": "Patrick",
-    "text": "Hello World! Don't mind Steph, she's tired."
-  },
-  "1": { "user": "Stephanie", "text": "Bye World!" },
-  "nextid": 2
-}
+{ "nextid": 0 }
