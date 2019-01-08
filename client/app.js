@@ -22,7 +22,7 @@ $(() => {
     $.each(chirps, (i, chirp) => {
       if (chirp.user && chirp.text !== undefined) {
         $chirps.append(
-          '<div type="button" class="card w-25 text-center m-2 rounded"><div class="card-body"><h4 class="card-title">' +
+          `<div type="button" class="card w-25 text-center m-2 rounded" onclick="editPopup(${i})"><div class="card-body"><h4 class="card-title">` +
             chirp.user +
             '</h4><p class="card-text">' +
             chirp.text +
@@ -30,6 +30,9 @@ $(() => {
             `<button class="btn btn-danger" onclick="removeChirp(${i})">X</button>` +
             "</div></div>"
         );
+        editPopup = id => {
+          console.log(chirps[id]);
+        };
       }
     });
   }; //update chirps display
