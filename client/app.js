@@ -19,6 +19,11 @@ $(() => {
       });
     }; //Delete chirp by id and update chirps display
 
+    removePopup = () => {
+      $("#popup").empty();
+      $("#popup").css("display", "none");
+    };
+
     $.each(chirps, (i, chirp) => {
       if (chirp.user && chirp.text !== undefined) {
         $chirps.append(
@@ -31,7 +36,14 @@ $(() => {
             "</div></div>"
         );
         editPopup = id => {
-          console.log(chirps[id]);
+          $("#popup").css("display", "block");
+          $("#popup").append(
+            `<div class="m-2"><p>Name: <input class="form-input" type="text" name="user" id="user" value="${
+              chirps[id].user
+            }" /></p><p>Chirp: <input class="form-input" type="text" name="text" id="chirp-text" value="${
+              chirps[id].text
+            }" /></p><button class="btn btn-primary" id="chirp-submit" onclick="submitEdit()">Save</button><button class="btn btn-danger" onclick="removePopup()">X</button></div>`
+          );
         };
       }
     });
